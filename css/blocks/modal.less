@@ -1,0 +1,91 @@
+//main: ../style.less
+
+.modal {
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    overflow: auto;
+    background-color: rgba(35, 14, 54, 0.9) ;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.8s ease 0s;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &.active .modal__dialog {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}
+
+.modal__dialog {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #fff;
+    position: relative;
+    transition: all 0.8s ease 0s;
+    transform: translate(0px, -100%);
+    opacity: 0;
+    
+    &--sm {
+        max-width: 900px;
+    }
+}
+
+.modal__close {
+    width: 2.2rem;
+    height: 2.1rem;
+    padding: 0;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 0.9rem;
+    right: 1rem;
+    z-index: 1;
+
+    transition: transform .2s linear;
+    &:hover {
+        transform: translateY(-3px);
+    }
+}
+
+.modal__content {
+    padding: 5rem 1rem;
+}
+
+.modal__title {
+    margin-bottom: 3.61rem;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: @black;
+    font-weight: 700;
+
+    @media @mobile {
+        font-size: 1.5rem;
+    }
+
+    @media @mobile-sm {
+        margin-bottom: 2rem;
+    }
+  
+}
+
+.modal__subtitle {
+    font-size: 1.06rem;
+    color: @black;
+    text-transform: uppercase;
+    font-weight: normal;
+
+    @media @mobile {
+        font-size: .8rem;
+    }
+}
